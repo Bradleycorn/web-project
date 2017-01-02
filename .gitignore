@@ -1,0 +1,8 @@
+.DS_STORE
+.phpintel
+Thumbs.db
+WEBSITE/node_modules
+WEBSITE/.tmp
+WEBSITE/www
+WEBSITE/app/_/bower_components
+WEBSITE/app/_/css

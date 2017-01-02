@@ -1,0 +1,7 @@
+{
+  "name": "dev.bradball.net",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "4.0.0-alpha.5"
+  }
+}
