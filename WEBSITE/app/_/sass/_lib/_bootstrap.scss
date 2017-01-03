@@ -1,0 +1,15 @@
+/*
+ * THIS IS COPY OF BOOTSTRAP'S _CUSTOM.SCSS FILE.
+ * SINCE BOOTSTRAP IS MAINTAINED BY BOWER, THE CUSTOM.SCSS FILE
+ * WILL GET OVERWRITTEN WHEN GETTING AN UPDATE VIA BOWER.
+ * SO, WE PUT THE CONTENTS OF OUR _CUSTOM.SCSS IN THIS FILE.
+ * 
+ * OUR BUILD SCRIPTS WILL COPY THE CONTENTS OF THIS FILE TO 
+ * app/_/bower_components/bootstrap/scss/_custom.scss
+ * BEFORE BOOTSTRAP IS COMPILED. 
+ */
+
+// Bootstrap overrides
+//
+// Copy variables from `bootstrap/scss/_variables.scss` to this file to override default values
+// without modifying source files.
