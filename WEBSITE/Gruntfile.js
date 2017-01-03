@@ -75,6 +75,19 @@ module.exports = function(grunt) {
 						]
 					} 
 				]
+			},
+			bootstrap: {
+				files: [
+					{
+						expand: true,
+						src: '<%= config.src_path %>/_/sass/_lib/_bootstrap.scss',
+						dest: '<%= bower.directory %>/bootstrap/scss',
+						flatten: true,
+						rename: function(dest,src) {
+							return dest + src.replace('_bootstrap', '/_custom');
+						}
+					}
+				]
 			}
 		},
 
@@ -222,12 +235,20 @@ module.exports = function(grunt) {
 				}
 			},
 			sass: {
-				files: ['<%= config.src_path %>/_/sass/**/*.scss'],
+				files: ['<%= config.src_path %>/_/sass/**/*.scss','!<%= config.src_path %>/_/sass/_lib/_bootstrap.scss'],
 				tasks: ['sass', 'postcss'],
 				options: {
 					spawn: true,
 					interrupt: true
 				}
+			},
+			bootstrap: {
+				files: ['<%= config.src_path %>/_/sass/_lib/_bootstrap.scss'],
+				tasks: ['copy:bootstrap', 'hub:bootstrap'],
+				options: {
+					spawn: true,
+					interrupt: true
+				}				
 			}
 		}
 
@@ -235,16 +256,18 @@ module.exports = function(grunt) {
 
 
 
-	grunt.registerTask('default', ['dev']);
+	grunt.registerTask('default', ['dev:sync']);
 
 	grunt.registerTask('update', [
 		'auto_install',
+		'copy:bootstrap',
 		'hub:bootstrap'
 	]);
 
 	grunt.registerTask('dev', function(opt) {
 
 		var tasks =	[
+			'copy:bootstrap',
 			'hub:bootstrap',
 			'clean:all', 
 			'clean:dev', 
